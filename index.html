@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Letter for Pihu</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebf0;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+        }
+        .message-box {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        .hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <audio id="happySound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+    <audio id="messageSound" src="https://www.fesliyanstudios.com/play-mp3/6994" preload="auto"></audio>
+    
+    <div class="message-box" id="step1">
+        <h2>🌸 Happy Women's Day, Pihu! 💖</h2>
+        <button onclick="nextStep('step1', 'step2')">Next</button>
+    </div>
+    
+    <div class="message-box hidden" id="step2">
+        <h3>Do you think you're amazing? 🤔</h3>
+        <div class="buttons">
+            <button onclick="nextStep('step2', 'step3')">Yes! 😍</button>
+            <button onclick="nextStep('step2', 'step4')">No 😅</button>
+        </div>
+    </div>
+    
+    <div class="message-box hidden" id="step3">
+        <h3>Correct! You are truly amazing! 💖</h3>
+        <button onclick="nextStep('step3', 'step5')">Next</button>
+    </div>
+    
+    <div class="message-box hidden" id="step4">
+        <h3>Oops! That's incorrect! You ARE amazing! 🌟</h3>
+        <button onclick="nextStep('step4', 'step5')">Next</button>
+    </div>
+    
+    <div class="message-box hidden" id="step5">
+        <h3>I have a message for you. Wanna listen? 😊</h3>
+        <div class="buttons">
+            <button onclick="nextStep('step5', 'step6'); document.getElementById('messageSound').play();">Yes</button>
+            <button onclick="nextStep('step5', 'step7')">No</button>
+        </div>
+    </div>
+    
+    <div class="message-box hidden" id="step6">
+        <p>"She is a dreamer, a believer, a doer, and an achiever. 💖✨<br>
+        She is strong, she is fierce, she is YOU! 💪🌸<br>
+        **Happy Women's Day, Pihu!** 💐🎉"</p>
+    </div>
+    
+    <div class="message-box hidden" id="step7">
+        <h3>No problem! Still, Happy Women's Day! 💕</h3>
+    </div>
+    
+    <script>
+        function nextStep(current, next) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+            if (current === 'step1') {
+                document.getElementById('happySound').play();
+            }
+        }
+    </script>
+</body>
+</html>
